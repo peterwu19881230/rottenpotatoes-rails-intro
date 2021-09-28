@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*
+#movies th { 
+  background-color: wheat;
+}
+ */
+
+table#movies th.hilite {
+  background-color: yellow;
+}
