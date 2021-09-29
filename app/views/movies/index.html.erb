@@ -6,20 +6,10 @@
 
 <table class="table table-striped col-md-12" id="movies">
   <thead>
-
-    <%= form_tag movies_path, :method => :get do %>
-    Include:
-    <% @all_ratings.each do |rating| %>
-    <%= rating %>
-    <%= check_box_tag "ratings[#{rating}]" %>
-    <% end %>
-    <%= submit_tag 'Refresh', :class => 'btn btn-primary' %>
-    <% end %>
-
     <tr>
-      <th><div id="title_header" style="background-color:wheat"><%= sortable "title","Movie Title" %></div></th>
+      <th><div id="title_header" style="background-color:wheat"><%= link_to "Movie Title", :sort => "title" %></div></th>
       <th>Rating</th>
-      <th><div id="release_date_header" style="background-color:wheat"><%= sortable "release_date","Release Date"%></div></th>
+      <th><div id="release_date_header" style="background-color:wheat"><%= link_to "Release Date", :sort => "release_date" %></div></th>
       <th>More Info</th>
     </tr>
   </thead>
