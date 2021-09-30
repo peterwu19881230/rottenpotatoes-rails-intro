@@ -2,8 +2,6 @@
 <h2>All Movies</h2>
 
 <%#  Part 1: Start here... %>
-
-
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <%= form_tag movies_path, :method => :get do %>
@@ -15,9 +13,9 @@
     <%= submit_tag 'Refresh', :class => 'btn btn-primary' %>
     <% end %>
     <tr>
-      <th><div id="title_header" style="background-color:wheat"><%= link_to "Movie Title", :sort => "title" %></div></th>
+      <th><div id="title_header" style="<%= "background-color:wheat" if @title_sort==true && params[:sort] == "title" %>" ><%= link_to "Movie Title", :sort => "title" %></div></th>
       <th>Rating</th>
-      <th><div id="release_date_header" style="background-color:wheat"><%= link_to "Release Date", :sort => "release_date" %></div></th>
+      <th><div id="release_date_header" style="<%= "background-color:wheat" if @title_sort==true && params[:sort] == "release_date" %> " ><%= link_to "Release Date", :sort => "release_date" %></div></th>
       <th>More Info</th>
     </tr>
   </thead>

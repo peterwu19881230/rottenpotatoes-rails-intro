@@ -8,10 +8,14 @@ class MoviesController < ApplicationController
 def index
     @movies = params[:ratings]&.any? ? Movie.find_all_by_ratings(params[:ratings].keys) : Movie.all
     @all_ratings=Movie.ratings # all unique ratings from the Movie class in movie.rb
+    @title_sort= false
     
     if params[:sort]
       @movies = @movies.order(params[:sort])
+      @title_sort= true
     end
+    
+    
     
     session[:sort] = params[:sort] if params[:sort]
     session[:ratings] = params[:ratings] if params[:ratings] || params[:commit] == 'Refresh'
